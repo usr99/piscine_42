@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_merge.c                                    :+:      :+:    :+:   */
+/*   btree_create_node.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/25 19:26:48 by mamartin          #+#    #+#             */
-/*   Updated: 2020/08/25 19:27:32 by mamartin         ###   ########.fr       */
+/*   Created: 2020/08/26 03:43:40 by mamartin          #+#    #+#             */
+/*   Updated: 2020/08/26 03:47:49 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#include <stdlib.h>
+#include "ft_btree.h"
 
-void	ft_list_merge(t_list **begin_list1, t_list *begin_list2)
+t_btree	*btree_create_node(void *item)
 {
-	t_list	*ptr;
+	t_btree	*new;
 
-	ptr = *begin_list1;
-	while (ptr->next)
-		ptr = ptr->next;
-	ptr->next = begin_list2;
+	new = malloc(sizeof(*new));
+	if (!new)
+		return (NULL);
+	new->item = item;
+	new->left = NULL;
+	new->right = NULL;
+	return (new);
 }

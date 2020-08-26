@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_merge.c                                    :+:      :+:    :+:   */
+/*   btree_apply_prefix.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/25 19:26:48 by mamartin          #+#    #+#             */
-/*   Updated: 2020/08/25 19:27:32 by mamartin         ###   ########.fr       */
+/*   Created: 2020/08/26 03:55:00 by mamartin          #+#    #+#             */
+/*   Updated: 2020/08/26 04:45:54 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#include "ft_btree.h"
 
-void	ft_list_merge(t_list **begin_list1, t_list *begin_list2)
+void	btree_apply_prefix(t_btree *root, void (*applyf)(void *))
 {
-	t_list	*ptr;
-
-	ptr = *begin_list1;
-	while (ptr->next)
-		ptr = ptr->next;
-	ptr->next = begin_list2;
+	if (!root)
+		return ;
+	(*applyf)(root->item);
+	btree_apply_prefix(root->left, applyf);
+	btree_apply_prefix(root->right, applyf);
 }

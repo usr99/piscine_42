@@ -6,7 +6,7 @@
 /*   By: mamartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/20 23:56:03 by mamartin          #+#    #+#             */
-/*   Updated: 2020/08/21 00:02:51 by mamartin         ###   ########.fr       */
+/*   Updated: 2020/08/26 03:32:12 by mamartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,7 @@ typedef struct		s_list
 	struct s_list	*next;
 	void			*data;
 }					t_list;
+
+t_list				*ft_create_elem(void *data);
 
 #endif
