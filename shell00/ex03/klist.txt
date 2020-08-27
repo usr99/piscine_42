@@ -1,0 +1,5 @@
+Credentials cache: API:322E6BCC-733B-4FF0-B6DC-AFC8AB61DDF2
+        Principal: mamartin@42.FR
+
+  Issued                Expires               Principal
+Aug  3 12:08:41 2020  Aug 10 12:08:35 2020  krbtgt/42.FR@42.FR
